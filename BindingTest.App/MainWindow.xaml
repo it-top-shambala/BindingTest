@@ -4,18 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:model="clr-namespace:BindingTest.Model;assembly=BindingTest.Model"
+        xmlns:converter="clr-namespace:BindingTest.Lib;assembly=BindingTest.Lib"
         xmlns:local="clr-namespace:BindingTest.App"
         mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <model:Person x:Key="Person" />
+        <converter:DateConvertToString x:Key="DateConvertToString"/>
     </Window.Resources>
     
     <StackPanel>
         <Label x:Name="Title"
                Content="Тестирование привязки"/>
         
-        <Grid DataContext="{DynamicResource Person}">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -44,27 +46,28 @@
             <!-- Body -->
             <TextBox x:Name="Input_Id" 
                      Grid.Row="1" Grid.Column="0"
-                     Text="{Binding Path=Id}"/>
+                     Text="{Binding Path=Person.Id}"/>
             <TextBox x:Name="Input_LastName"
                      Grid.Row="1" Grid.Column="1"
-                     Text="{Binding Path=LastName}"/>
+                     Text="{Binding Path=Person.LastName}"/>
             <TextBox x:Name="Input_FirstName"
                      Grid.Row="1" Grid.Column="2"
-                     Text="{Binding Path=FirstName}"/>
-            <TextBox x:Name="Input_DateOfBirth"
+                     Text="{Binding Path=Person.FirstName}"/>
+            <DatePicker x:Name="Input_DateOfBirth"
                      Grid.Row="1" Grid.Column="3"
-                     Text="{Binding Path=DateOfBirth}"/>
+                     SelectedDate="{Binding Path=Person.DateOfBirth}"/>
         </Grid>
         
         <Label x:Name="Output"
-               DataContext="{DynamicResource Person}">
+               DataContext="{Binding Person}">
             <Label.Content>
                 <TextBlock>
                     <TextBlock.Text>
-                        <MultiBinding StringFormat="#{0}: {1} {2}">
+                        <MultiBinding StringFormat="#{0}: {1} {2}, {3}">
                             <Binding Path="Id"/>
                             <Binding Path="FirstName"/>
                             <Binding Path="LastName"/>
+                            <Binding Path="DateOfBirth" Converter="{StaticResource DateConvertToString}"/>
                         </MultiBinding>
                     </TextBlock.Text>
                 </TextBlock>

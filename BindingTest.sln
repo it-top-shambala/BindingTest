@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingTest.App", "BindingT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingTest.Model", "BindingTest.Model\BindingTest.Model.csproj", "{3D58BB25-DFE2-478B-A98B-0426793AB162}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingTest.Lib", "BindingTest.Lib\BindingTest.Lib.csproj", "{BA133B81-B1D6-42D1-90E7-4F7354586F16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3D58BB25-DFE2-478B-A98B-0426793AB162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D58BB25-DFE2-478B-A98B-0426793AB162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D58BB25-DFE2-478B-A98B-0426793AB162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA133B81-B1D6-42D1-90E7-4F7354586F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA133B81-B1D6-42D1-90E7-4F7354586F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA133B81-B1D6-42D1-90E7-4F7354586F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA133B81-B1D6-42D1-90E7-4F7354586F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
